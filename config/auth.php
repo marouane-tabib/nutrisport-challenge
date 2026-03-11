@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Agent;
 use App\Models\User;
 
 return [
@@ -42,6 +43,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'client' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],
+
+        'agent' => [
+            'driver' => 'jwt',
+            'provider' => 'agents',
+        ],
     ],
 
     /*
@@ -65,6 +76,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', User::class),
+        ],
+
+        'agents' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_AGENT_MODEL', Agent::class),
         ],
 
         // 'users' => [
