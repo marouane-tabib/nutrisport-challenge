@@ -15,6 +15,12 @@ class EnsureAgentHasAccess
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $agent = auth('agent')->user();
+
+        if (!$agent || !$agent->hasFullAccess()) {
+            return errorResponse('Insufficient permissions', 403);
+        }
+
         return $next($request);
     }
 }
