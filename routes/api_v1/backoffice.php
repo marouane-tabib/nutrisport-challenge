@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\BackOffice\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 // --- Public ---
-// POST /auth/login
+Route::post('/auth/login', [AuthController::class, 'login'])->middleware('throttle:10,1');
 
 // --- Authenticated (auth:agent) ---
-// POST /auth/logout
-// POST /auth/refresh
+Route::middleware('auth:agent')->group(function () {
+    Route::post('/auth/logout', [AuthController::class, 'logout']);
+    Route::post('/auth/refresh', [AuthController::class, 'refresh']);
 
-// --- Permission protected (agent.access) ---
-// GET  /orders
-// POST /products
+    // --- Permission protected (agent.access) ---
+    Route::middleware('agent.access')->group(function () {
+        // GET  /orders
+        // POST /products
+    });
+});
