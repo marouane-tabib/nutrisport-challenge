@@ -99,6 +99,7 @@ return [
     | Client JWT token lifetime: 6 hours (360 minutes)
     | Agent JWT token lifetime: 8 hours (480 minutes)
     |
+    |
     */
 
     'client_ttl' => env('JWT_CLIENT_TTL', 360),
