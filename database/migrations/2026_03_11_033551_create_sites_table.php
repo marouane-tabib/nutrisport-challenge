@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('domain')->unique();
+            $table->string('country_code', 2);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

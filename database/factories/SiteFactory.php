@@ -18,7 +18,10 @@ class SiteFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => 'NutriSport ' . fake()->country(),
+            'domain' => 'nutri-sport.' . fake()->unique()->tld(),
+            'country_code' => fake()->countryCode(),
+            'is_active' => true,
         ];
     }
 }
