@@ -18,7 +18,13 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->words(3, true),
+            'stock' => fake()->numberBetween(0, 100),
         ];
+    }
+
+    public function outOfStock(): static
+    {
+        return $this->state(['stock' => 0]);
     }
 }
