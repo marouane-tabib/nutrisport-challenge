@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Client\AuthController;
+use App\Http\Controllers\Api\Client\ProductController;
 use App\Http\Controllers\Api\Feed\ProductFeedController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +23,8 @@ Route::middleware('resolve.site')->group(function () {
     Route::post('/auth/login', [AuthController::class, 'login'])->middleware('throttle:10,1');
 
     // Catalog
-    // GET /products
-    // GET /products/{id}
+    Route::get('/products', [ProductController::class, 'index']);
+    Route::get('/products/{id}', [ProductController::class, 'show']);
 
     // Cart (no auth required)
     // POST /cart/items
