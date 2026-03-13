@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Client\AuthController;
+use App\Http\Controllers\Api\Client\CartController;
 use App\Http\Controllers\Api\Client\ProductController;
 use App\Http\Controllers\Api\Feed\ProductFeedController;
 use Illuminate\Support\Facades\Route;
@@ -27,9 +28,11 @@ Route::middleware('resolve.site')->group(function () {
     Route::get('/products/{id}', [ProductController::class, 'show']);
 
     // Cart (no auth required)
-    // POST /cart/items
-    // GET  /cart/{cartId}
-    // DELETE /cart/{cartId}/items/{productId}
+    Route::post('/cart/items', [CartController::class, 'store']);
+    Route::get('/cart/{cartId}', [CartController::class, 'show']);
+    Route::delete('/cart/{cartId}/items/{productId}', [CartController::class, 'delete']);
+    Route::delete('/cart/{cartId}', [CartController::class, 'clear']);
+
 
     // Authenticated
     Route::middleware('auth:client')->group(function () {
