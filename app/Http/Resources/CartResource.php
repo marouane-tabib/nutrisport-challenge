@@ -14,6 +14,10 @@ class CartResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'cart_id' => $this['cart_id'],
+            'items'   => CartItemResource::collection($this['items']),
+            'total'   => (float) $this['total'],
+        ];
     }
 }
