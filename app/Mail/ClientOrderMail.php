@@ -9,6 +9,7 @@ use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Order;
 
 class ClientOrderMail extends Mailable
 {
@@ -17,7 +18,7 @@ class ClientOrderMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(public Order $order)
     {
         //
     }
@@ -28,7 +29,7 @@ class ClientOrderMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Client Order Mail',
+            subject: 'Confirmation de commande #' . $this->order->id,
         );
     }
 
@@ -38,7 +39,10 @@ class ClientOrderMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.orders.client-confirmation',
+            view: 'emails.orders.client-confirmation',
+            with: [
+                'order' => $this->order,
+            ]
         );
     }
 

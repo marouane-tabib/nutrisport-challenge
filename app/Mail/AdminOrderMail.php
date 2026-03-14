@@ -9,6 +9,7 @@ use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Order;
 
 class AdminOrderMail extends Mailable
 {
@@ -17,7 +18,7 @@ class AdminOrderMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(public Order $order)
     {
         //
     }
@@ -28,7 +29,7 @@ class AdminOrderMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Admin Order Mail',
+            subject: 'Nouvelle commande #' . $this->order->id,
         );
     }
 
@@ -38,7 +39,10 @@ class AdminOrderMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.orders.admin-notification',
+            view: 'emails.orders.admin-notification',
+            with: [
+                'order' => $this->order,
+            ]
         );
     }
 
