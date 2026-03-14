@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Client\AuthController;
 use App\Http\Controllers\Api\Client\CartController;
+use App\Http\Controllers\Api\Client\OrderController;
 use App\Http\Controllers\Api\Client\ProductController;
 use App\Http\Controllers\Api\Feed\ProductFeedController;
 use Illuminate\Support\Facades\Route;
@@ -43,8 +44,8 @@ Route::middleware('resolve.site')->group(function () {
         Route::put('/auth/password', [AuthController::class, 'updatePassword']);
 
         // Orders
-        // POST /orders
-        // GET  /orders
+        Route::post('/orders', [OrderController::class, 'store']);
+        Route::get('/orders', [OrderController::class, 'index']);
     });
 });
 
