@@ -136,7 +136,7 @@ class CartService extends BaseService
      * @param string $cartId
      * @return array{items: array, total: float}
      */
-    protected function findCart(string $cartId): array
+    public function findCart(string $cartId): array
     {
         return Cache::get($this->cartKey($cartId), [
             'items' => [],
