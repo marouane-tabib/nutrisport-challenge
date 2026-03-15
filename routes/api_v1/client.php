@@ -50,5 +50,5 @@ Route::middleware('resolve.site')->group(function () {
 });
 
 // --- Public routes (no site-scoping) ---
-Route::get('/feeds/products.{format}', [ProductFeedController::class, 'index'])
+Route::get('/feeds/products.{format}', [ProductFeedController::class, 'show'])
     ->whereIn('format', ['json', 'xml']);
