@@ -9,6 +9,9 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use App\Models\Site;
 use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
+use App\Services\Feed\JsonFeedGenerator;
+use App\Services\Feed\XmlFeedGenerator;
+use App\Exceptions\ProductException;
 
 class ProductService extends BaseService
 {
@@ -62,5 +65,36 @@ class ProductService extends BaseService
         });
 
         return $product;
+    }
+
+    /**
+     * Generate feed in the specified format.
+     *
+     * @param string $format
+     * @return array|null
+     */
+    public function generateFeed(string $format): ?array
+    {
+        $generators = [
+            'json' => JsonFeedGenerator::class,
+            'xml'  => XmlFeedGenerator::class,
+        ];
+
+        if (!array_key_exists($format, $generators)) {
+            throw ProductException::unsupportedFeedFormat($format);
+        }
+
+        $products = Product::where('stock', '>', 0)
+            ->orderBy('id')
+            ->select('id', 'name', 'stock')
+            ->get()
+            ->toArray();
+
+        $generator = (new $generators[$format]);
+
+        return [
+            'content'      => $generator->generate($products),
+            'content_type' => $generator->contentType(),
+        ];
     }
 }
