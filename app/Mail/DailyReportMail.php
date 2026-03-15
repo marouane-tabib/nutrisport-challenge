@@ -10,17 +10,16 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class DailyReportMail extends Mailable
+class DailyReportMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
-    {
-        //
-    }
+    public function __construct(
+        public array $reportData
+    ) {}
 
     /**
      * Get the message envelope.
@@ -28,7 +27,7 @@ class DailyReportMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Daily Report Mail',
+            subject: 'Rapport quotidien NutriSport — ' . $this->reportData['date'],
         );
     }
 
@@ -38,7 +37,10 @@ class DailyReportMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.reports.daily',
+            view: 'emails.reports.daily',
+            with: [
+                'reportData' => $this->reportData,
+            ]
         );
     }
 
