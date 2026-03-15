@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\BackOffice\AuthController;
+use App\Http\Controllers\Api\BackOffice\OrderController;
+use App\Http\Controllers\Api\BackOffice\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +25,7 @@ Route::middleware('auth:agent')->group(function () {
 
     // --- Permission protected (agent.access) ---
     Route::middleware('agent.access')->group(function () {
-        // GET  /orders
-        // POST /products
+        Route::get('/orders', [OrderController::class, 'index']);
+        Route::post('/products', [ProductController::class, 'store']);
     });
 });
