@@ -92,6 +92,23 @@ class OrderService extends BaseService
     }
 
     /**
+     * Get paginated orders for a specific user.
+     *
+     * @param int $userId
+     * @param int $perPage
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function getRecentOrders($data)
+    {
+        $orders = Order::with(['user', 'site'])
+            ->where('created_at', '>=', now()->subDays($data['days'])->startOfDay())
+            ->orderBy('created_at', 'desc')
+            ->paginate($data['perPage'] ?? 1, page: $data['page'] ?? 10);
+
+        return $orders;
+    }
+
+    /**
      * Validate that all products in the cart have sufficient stock.
      *
      * @param array $cartItems
