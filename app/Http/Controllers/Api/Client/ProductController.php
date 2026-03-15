@@ -25,10 +25,14 @@ class ProductController extends Controller
      */
     public function index(ListProductsRequest $request): JsonResponse
     {
-        $products = $this->productService->index($request->site->id, $request->validated());
-        $formattedProducts = formatPaginatedResource($products, ProductResource::class);
+        try {
+            $products = $this->productService->index($request->site->id, $request->validated());
+            $formattedProducts = formatPaginatedResource($products, ProductResource::class);
 
-        return successResponse($formattedProducts);
+            return successResponse($formattedProducts);
+        } catch (ModelNotFoundException $e) {
+            return errorResponse($e, 404);
+        }
     }
 
     /**
