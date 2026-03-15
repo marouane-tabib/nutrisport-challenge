@@ -31,6 +31,17 @@ if (!function_exists('errorResponse')) {
     }
 }
 
+if (!function_exists('feedResponse')) {
+    /**
+     * Return a raw feed response with custom content type.
+     */
+    function feedResponse(string $content, string $contentType = 'application/json', int $code = 200): \Illuminate\Http\Response
+    {
+        return response($content, $code)
+            ->header('Content-Type', $contentType);
+    }
+}
+
 if (!function_exists('formatPagination')) {
     /**
      * Format paginated results into a structured array.
