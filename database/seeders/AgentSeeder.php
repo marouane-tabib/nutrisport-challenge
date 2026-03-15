@@ -18,5 +18,11 @@ class AgentSeeder extends Seeder
             'email' => 'admin@nutrisport.com',
             'password' => 'password',
         ]);
+
+        Agent::create([
+            'name' => 'Test Agent',
+            'email' => 'test@nutrisport.com',
+            'password' => 'password123',
+        ]);
     }
 }
