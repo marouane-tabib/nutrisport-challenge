@@ -15,10 +15,17 @@ class ProductResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'price' => $this->price !== null ? (float) $this->price : null,
-            'in_stock' => $this->inStock(),
+            'id'        => $this->id,
+            'name'      => $this->name,
+            'stock'     => $this->stock,
+            'in_stock'  => $this->stock > 0,
+            'price'     => $this->when(isset($this->price), $this->price), // for client catalog
+            'prices'    => $this->whenLoaded('prices', function () {
+                return $this->prices->map(fn($price) => [
+                    'site_id' => $price->site_id,
+                    'price'   => (float) $price->price,
+                ]);
+            }),
         ];
     }
 }
