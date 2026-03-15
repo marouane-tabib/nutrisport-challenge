@@ -25,10 +25,10 @@ class RegisterRequest extends FormRequest
         $siteId = $this->site->id;
 
         return [
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name'  => ['required', 'string', 'max:255'],
-            'email'      => ['required', 'email', "unique:users,email,NULL,id,site_id,{$siteId}"],
-            'password'   => ['required', 'string', 'min:8', 'confirmed'],
+            'first_name' => 'required|string|max:255',
+            'last_name'  => 'required|string|max:255',
+            'email'      => "required|email|unique:users,email,NULL,id,site_id,{$siteId}",
+            'password'   => 'required|string|min:8|confirmed',
         ];
     }
 }

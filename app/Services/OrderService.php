@@ -75,11 +75,11 @@ class OrderService extends BaseService
     }
 
     /**
-     * Get paginated orders for a specific user.
+     * Get paginated orders for a specific user with their items.
      *
-     * @param int $userId
-     * @param int $perPage
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * @param int $userId The user ID to retrieve orders for
+     * @param int $perPage The number of orders per page (default: 15)
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator The paginated orders
      */
     public function index(int $userId, int $perPage = 15)
     {
@@ -92,11 +92,10 @@ class OrderService extends BaseService
     }
 
     /**
-     * Get paginated orders for a specific user.
+     * Get paginated recent orders from the last N days with user and site information.
      *
-     * @param int $userId
-     * @param int $perPage
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * @param array $data The filter data containing days, perPage, and page
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator The paginated recent orders
      */
     public function getRecentOrders($data)
     {
@@ -111,8 +110,9 @@ class OrderService extends BaseService
     /**
      * Validate that all products in the cart have sufficient stock.
      *
-     * @param array $cartItems
-     * @throws RuntimeException
+     * @param array $cartItems The cart items to validate
+     * @return void
+     * @throws OrderException When a product is not found or has insufficient stock
      */
     protected function validateStock(array $cartItems): void
     {
@@ -130,16 +130,25 @@ class OrderService extends BaseService
     }
 
     /**
-     * Calculate total from cart items.
+     * Calculate the total price from cart items.
      *
-     * @param array $cartItems
-     * @return float
+     * @param array $cartItems The cart items to calculate total from
+     * @return float The total price
      */
     protected function calculateTotal(array $cartItems): float
     {
         return array_sum(array_column($cartItems, 'line_total'));
     }
 
+    /**
+     * Create an order record with shipping and payment information.
+     *
+     * @param User $user The user placing the order
+     * @param int $siteId The site ID for the order
+     * @param array $cartItems The items in the cart
+     * @param array $data The order data (shipping and payment details)
+     * @return Order The created order model
+     */
     protected function createOrder($user, $siteId, $cartItems, $data): Order
     {
         return Order::create([

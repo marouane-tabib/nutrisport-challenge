@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Client\ListProductsRequest;
 use App\Http\Resources\ProductResource;
 use App\Services\ProductService;
+use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -18,10 +19,10 @@ class ProductController extends Controller
     ) {}
 
     /**
-     * Get paginated list of products with prices for the current site.
+     * Get paginated list of products with site-specific pricing.
      *
-     * @param ListProductsRequest $request
-     * @return JsonResponse
+     * @param ListProductsRequest $request The request containing pagination and filter parameters
+     * @return JsonResponse The response containing paginated products with pricing
      */
     public function index(ListProductsRequest $request): JsonResponse
     {
@@ -32,15 +33,17 @@ class ProductController extends Controller
             return successResponse($formattedProducts);
         } catch (ModelNotFoundException $e) {
             return errorResponse($e, 404);
+        } catch (Exception $e) {
+            return errorResponse($e->getMessage(), 500);
         }
     }
 
     /**
-     * Get a single product with its price for the current site.
+     * Get a single product with its site-specific pricing and details.
      *
-     * @param Request $request
-     * @param int $id
-     * @return JsonResponse
+     * @param Request $request The request containing site information
+     * @param int $id The product ID to retrieve
+     * @return JsonResponse The response containing the product data with pricing
      */
     public function show(Request $request, int $id): JsonResponse
     {
@@ -51,6 +54,8 @@ class ProductController extends Controller
             return successResponse($product);
         } catch (ModelNotFoundException $e) {
             return errorResponse($e, 404);
+        } catch (Exception $e) {
+            return errorResponse($e->getMessage(), 500);
         }
     }
 }

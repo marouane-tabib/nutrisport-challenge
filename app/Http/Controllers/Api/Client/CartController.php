@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Client\AddToCartRequest;
 use App\Http\Resources\CartResource;
 use App\Services\CartService;
+use Exception;
 use Illuminate\Http\JsonResponse;
 
 class CartController extends Controller
@@ -16,10 +17,10 @@ class CartController extends Controller
     ) {}
 
     /**
-     * Display the cart contents.
+     * Display the cart contents with all items and their details.
      *
-     * @param string $cartId
-     * @return \Illuminate\Http\JsonResponse
+     * @param string $cartId The unique identifier of the cart
+     * @return JsonResponse The response containing the cart data with items
      */
     public function show(string $cartId): JsonResponse
     {
@@ -31,14 +32,16 @@ class CartController extends Controller
             return successResponse($cart, code: 200);
         } catch (CartException $e) {
             return errorResponse($e->getMessage(), code: 404);
+        } catch (Exception $e) {
+            return errorResponse($e->getMessage(), code: 500);
         }
     }
 
     /**
-     * Add an item to the cart.
+     * Add a product item to the cart with quantity.
      *
-     * @param AddToCartRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param AddToCartRequest $request The request containing product ID and quantity
+     * @return JsonResponse The response containing the updated cart data
      */
     public function store(AddToCartRequest $request): JsonResponse
     {
@@ -49,15 +52,17 @@ class CartController extends Controller
             return successResponse($cart, code: 200);
         } catch (CartException $e) {
             return errorResponse($e->getMessage(), code: 400);
+        } catch (Exception $e) {
+            return errorResponse($e->getMessage(), code: 500);
         }
     }
 
     /**
-     * Remove an item from the cart.
+     * Remove a specific product item from the cart.
      *
-     * @param string $cartId
-     * @param int $productId
-     * @return \Illuminate\Http\JsonResponse
+     * @param string $cartId The unique identifier of the cart
+     * @param int $productId The ID of the product to remove
+     * @return JsonResponse The response confirming the item removal
      */
     public function delete(string $cartId, int $productId): JsonResponse
     {
@@ -67,14 +72,16 @@ class CartController extends Controller
             return successResponse(message: "Product deleted from cart successfully", code: 200);
         } catch (CartException $e) {
             return errorResponse($e->getMessage(), code: 404);
+        } catch (Exception $e) {
+            return errorResponse($e->getMessage(), code: 500);
         }
     }
 
     /**
-     * Clear the entire cart (delete all items).
+     * Clear the entire cart by removing all items.
      *
-     * @param string $cartId
-     * @return \Illuminate\Http\JsonResponse
+     * @param string $cartId The unique identifier of the cart
+     * @return JsonResponse The response confirming the cart was cleared
      */
     public function clear(string $cartId): JsonResponse
     {
@@ -84,6 +91,8 @@ class CartController extends Controller
             return successResponse(message: "Cart cleared successfully", code: 200);
         } catch (CartException $e) {
             return errorResponse($e->getMessage(), code: 404);
+        } catch (Exception $e) {
+            return errorResponse($e->getMessage(), code: 500);
         }
     }
 }

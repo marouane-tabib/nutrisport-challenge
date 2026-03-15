@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class ReportService extends BaseService
 {
+    /**
+     * Generate a comprehensive daily report with sales and revenue analytics.
+     *
+     * @param Carbon|null $date The date to generate the report for (defaults to yesterday)
+     * @return array The report containing most/least sold products, revenue data, and per-site revenue
+     */
     public function generateDailyReport(?Carbon $date = null): array
     {
         $date  = $date ?? Carbon::yesterday();
@@ -26,6 +32,13 @@ class ReportService extends BaseService
         ];
     }
 
+    /**
+     * Get the most sold product within a date range.
+     *
+     * @param Carbon $start The start date for the range
+     * @param Carbon $end The end date for the range
+     * @return array|null The product name and total quantity sold, or null if no sales
+     */
     private function getMostSoldProduct(Carbon $start, Carbon $end): ?array
     {
         $item = OrderItem::with('product')
@@ -43,6 +56,13 @@ class ReportService extends BaseService
         ];
     }
 
+    /**
+     * Get the least sold product within a date range.
+     *
+     * @param Carbon $start The start date for the range
+     * @param Carbon $end The end date for the range
+     * @return array|null The product name and total quantity sold, or null if no sales
+     */
     private function getLeastSoldProduct(Carbon $start, Carbon $end): ?array
     {
         $item = OrderItem::with('product')
@@ -60,6 +80,13 @@ class ReportService extends BaseService
         ];
     }
 
+    /**
+     * Get the product with highest revenue within a date range.
+     *
+     * @param Carbon $start The start date for the range
+     * @param Carbon $end The end date for the range
+     * @return array|null The product name and total revenue, or null if no sales
+     */
     private function getHighestRevenueProduct(Carbon $start, Carbon $end): ?array
     {
         $item = OrderItem::with('product')
@@ -77,6 +104,13 @@ class ReportService extends BaseService
         ];
     }
 
+    /**
+     * Get the product with lowest revenue within a date range.
+     *
+     * @param Carbon $start The start date for the range
+     * @param Carbon $end The end date for the range
+     * @return array|null The product name and total revenue, or null if no sales
+     */
     private function getLowestRevenueProduct(Carbon $start, Carbon $end): ?array
     {
         $item = OrderItem::with('product')
@@ -94,6 +128,13 @@ class ReportService extends BaseService
         ];
     }
 
+    /**
+     * Get revenue breakdown per site within a date range.
+     *
+     * @param Carbon $start The start date for the range
+     * @param Carbon $end The end date for the range
+     * @return array Array of sites with their total revenue
+     */
     private function getRevenuePerSite(Carbon $start, Carbon $end): array
     {
         return Order::with('site')

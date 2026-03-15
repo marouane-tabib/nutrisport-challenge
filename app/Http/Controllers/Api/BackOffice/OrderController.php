@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BackOffice\ListOrdersRequest;
 use App\Http\Resources\OrderListResource;
 use App\Services\OrderService;
+use Exception;
 
 class OrderController extends Controller
 {
@@ -15,7 +16,10 @@ class OrderController extends Controller
     ) {}
     
     /**
-     * List orders from the last 5 days.
+     * List orders from the last 5 days with filtering options.
+     *
+     * @param ListOrdersRequest $request The request containing filter parameters
+     * @return \Illuminate\Http\JsonResponse The response containing the list of recent orders
      */
     public function index(ListOrdersRequest $request)
     {
@@ -26,6 +30,8 @@ class OrderController extends Controller
             return successResponse($orders);
         } catch (OrderException $e) {
             return errorResponse($e, 504);
+        } catch (Exception $e) {
+            return errorResponse($e->getMessage(), 500);
         }
     }
 }

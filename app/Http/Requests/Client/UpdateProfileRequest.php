@@ -26,9 +26,9 @@ class UpdateProfileRequest extends FormRequest
         $siteId = $this->site->id;
 
         return [
-            'first_name' => ['sometimes', 'string', 'max:255'],
-            'last_name'  => ['sometimes', 'string', 'max:255'],
-            'email'      => ['sometimes', 'email', "unique:users,email,{$userId},id,site_id,{$siteId}"],
+            'first_name' => 'sometimes|string|max:255',
+            'last_name'  => 'sometimes|string|max:255',
+            'email'      => "sometimes|email|unique:users,email,{$userId},id,site_id,{$siteId}",
         ];
     }
 }

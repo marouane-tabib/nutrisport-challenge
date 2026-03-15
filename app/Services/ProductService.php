@@ -16,11 +16,11 @@ use App\Exceptions\ProductException;
 class ProductService extends BaseService
 {
     /**
-     * Get paginated products with prices for a specific site.
+     * Get paginated products with site-specific prices.
      *
-     * @param int $siteId
-     * @param array $data
-     * @return LengthAwarePaginator
+     * @param int $siteId The site ID to retrieve products for
+     * @param array $data The pagination data (perPage, page)
+     * @return LengthAwarePaginator The paginated products with pricing
      */
     public function index(int $siteId, array $data): LengthAwarePaginator
     {
@@ -32,11 +32,11 @@ class ProductService extends BaseService
     }
 
     /**
-     * Find a single product with its price for a specific site.
+     * Find a single product with its site-specific price.
      *
-     * @param int $siteId
-     * @param int $productId
-     * @return Product
+     * @param int $siteId The site ID to retrieve the product for
+     * @param int $productId The product ID to retrieve
+     * @return Product The product with pricing information
      */
     public function show(int $siteId, int $productId): Product
     {
@@ -48,12 +48,11 @@ class ProductService extends BaseService
     }
     
     /**
-     * Create a product and its prices for multiple sites.
+     * Create a new product with per-site pricing configuration.
      *
-     * @param array $productData  ['name' => string, 'stock' => int]
-     * @param array $prices       array of ['site_id' => int, 'price' => float]
-     * @return \App\Models\Product
-     * @throws InvalidArgumentException
+     * @param array $data The product data containing name, stock, and prices array
+     * @return Product The created product model
+     * @throws InvalidArgumentException When data validation fails
      */
     public function store(array $data): Product
     {
@@ -68,10 +67,11 @@ class ProductService extends BaseService
     }
 
     /**
-     * Generate feed in the specified format.
+     * Generate a product feed in the specified format (JSON or XML).
      *
-     * @param string $format
-     * @return array|null
+     * @param string $format The feed format ('json' or 'xml')
+     * @return array The feed content and content type
+     * @throws ProductException When the feed format is not supported
      */
     public function generateFeed(string $format): ?array
     {

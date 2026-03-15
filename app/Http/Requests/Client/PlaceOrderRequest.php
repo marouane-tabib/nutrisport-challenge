@@ -23,12 +23,12 @@ class PlaceOrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cart_id'            => 'required|string|uuid',
+            'cart_id'            => 'required|uuid',
             'shipping_full_name' => 'required|string|max:255',
             'shipping_address'   => 'required|string|max:500',
             'shipping_city'      => 'required|string|max:255',
             'shipping_country'   => 'required|string|max:255',
-            'payment_method'     => 'required|string|in:bank_transfer',
+            'payment_method'     => 'required|in:bank_transfer',
         ];
     }
 }

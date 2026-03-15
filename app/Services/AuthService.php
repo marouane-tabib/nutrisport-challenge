@@ -19,8 +19,11 @@ class AuthService extends BaseService
     }
 
     /**
-     * Register a new user and return user + JWT token.
+     * Register a new user and return user data with JWT token.
      *
+     * @param array $data The user registration data (first_name, last_name, email, password)
+     * @param int $siteId The site ID for the user
+     * @return array The response containing user, token, and expires_in
      * @throws AuthenticationException
      */
     public function register(array $data, int $siteId): array
@@ -43,9 +46,12 @@ class AuthService extends BaseService
     }
 
     /**
-     * Authenticate a user by email + password scoped to a site.
+     * Authenticate a user by email and password scoped to a specific site.
      *
-     * @throws AuthenticationException
+     * @param array $credentials The login credentials (email, password)
+     * @param int $siteId The site ID to scope the authentication
+     * @return array The response containing user, token, and expires_in
+     * @throws AuthenticationException When credentials are invalid
      */
     public function login(array $credentials, int $siteId): array
     {
@@ -67,7 +73,9 @@ class AuthService extends BaseService
     }
 
     /**
-     * Invalidate the current token.
+     * Invalidate the current JWT token and logout the user.
+     *
+     * @return void
      */
     public function logout(): void
     {
@@ -75,7 +83,9 @@ class AuthService extends BaseService
     }
 
     /**
-     * Refresh the current token.
+     * Refresh the current JWT token for the authenticated user.
+     *
+     * @return array The response containing the new token and expires_in
      */
     public function refresh(): array
     {
@@ -88,7 +98,9 @@ class AuthService extends BaseService
     }
 
     /**
-     * Get the authenticated user.
+     * Get the authenticated user's profile information.
+     *
+     * @return User The authenticated user model
      */
     public function getProfile(): User
     {
@@ -96,7 +108,10 @@ class AuthService extends BaseService
     }
 
     /**
-     * Update user profile fields.
+     * Update the authenticated user's profile fields.
+     *
+     * @param array $data The profile data to update (first_name, last_name, email)
+     * @return User The updated user model
      */
     public function updateProfile(array $data): User
     {
@@ -107,9 +122,12 @@ class AuthService extends BaseService
     }
 
     /**
-     * Update user password after verifying current password.
+     * Update the authenticated user's password after verifying the current password.
      *
-     * @throws ValidationException
+     * @param string $currentPassword The user's current password
+     * @param string $newPassword The new password to set
+     * @return void
+     * @throws ValidationException When current password is incorrect
      */
     public function updatePassword(string $currentPassword, string $newPassword): void
     {
@@ -125,7 +143,9 @@ class AuthService extends BaseService
     }
 
     /**
-     * Get expires_in value in seconds.
+     * Get the JWT token expiration time in seconds.
+     *
+     * @return int The expiration time in seconds
      */
     private function getExpiresIn(): int
     {

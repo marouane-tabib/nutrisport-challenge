@@ -15,6 +15,212 @@ The API supports two main user types: **Clients** (customers) and **Agents** (ba
 
 ---
 
+## Project Structure
+
+### Directory Layout
+
+```
+app/
+├── Console/              # Artisan commands
+├── Enums/                # Enumeration classes
+│   ├── OrderStatus.php   # Order status states
+│   └── PaymentMethod.php # Payment method options
+├── Events/               # Event classes
+│   └── OrderPlaced.php   # Order placement event
+├── Exceptions/           # Custom exception classes
+│   ├── CartException.php
+│   ├── OrderException.php
+│   └── ProductException.php
+├── Http/
+│   ├── Controllers/
+│   │   ├── Api/
+│   │   │   ├── Client/           # Client-facing endpoints
+│   │   │   │   ├── AuthController.php
+│   │   │   │   ├── CartController.php
+│   │   │   │   ├── OrderController.php
+│   │   │   │   └── ProductController.php
+│   │   │   ├── BackOffice/       # Admin endpoints
+│   │   │   │   ├── AuthController.php
+│   │   │   │   ├── OrderController.php
+│   │   │   │   └── ProductController.php
+│   │   │   └── Feed/             # Feed endpoints
+│   │   │       └── ProductFeedController.php
+│   ├── Middleware/
+│   │   ├── ResolveSite.php       # Site resolution from header
+│   │   └── EnsureAgentHasAccess.php
+│   ├── Requests/                 # Form request validation
+│   │   ├── Client/
+│   │   │   ├── LoginRequest.php
+│   │   │   ├── RegisterRequest.php
+│   │   │   ├── AddToCartRequest.php
+│   │   │   ├── PlaceOrderRequest.php
+│   │   │   ├── UpdateProfileRequest.php
+│   │   │   └── UpdatePasswordRequest.php
+│   │   └── BackOffice/
+│   │       ├── LoginRequest.php
+│   │       ├── CreateProductRequest.php
+│   │       ├── ListOrdersRequest.php
+│   │       └── ListProductsRequest.php
+│   └── Resources/                # API response transformers
+│       ├── UserResource.php
+│       ├── ProductResource.php
+│       ├── OrderResource.php
+│       ├── OrderItemResource.php
+│       ├── OrderListResource.php
+│       └── AgentResource.php
+├── Interfaces/
+│   └── FeedGeneratorInterface.php # Feed generation contract
+├── Models/                        # Eloquent models
+│   ├── User.php
+│   ├── Product.php
+│   ├── ProductPrice.php
+│   ├── Order.php
+│   ├── OrderItem.php
+│   ├── Site.php
+│   └── Agent.php
+├── Services/                      # Business logic layer
+│   ├── BaseService.php            # Base service class
+│   ├── AuthService.php            # Client authentication
+│   ├── CartService.php            # Cart management
+│   ├── OrderService.php           # Order processing
+│   ├── ProductService.php         # Product management
+│   ├── ReportService.php          # Analytics & reports
+│   ├── Feed/
+│   │   ├── JsonFeedGenerator.php  # JSON feed generation
+│   │   └── XmlFeedGenerator.php   # XML feed generation
+│   └── AgentAuthService.php       # Agent authentication
+└── Listeners/                     # Event listeners
+    └── SendAdminOrderNotification.php
+
+database/
+├── migrations/                    # Database schema
+├── factories/                     # Model factories for testing
+│   ├── UserFactory.php
+│   ├── ProductFactory.php
+│   ├── OrderFactory.php
+│   ├── OrderItemFactory.php
+│   └── AgentFactory.php
+└── seeders/                       # Database seeders
+    └── DatabaseSeeder.php
+
+routes/
+├── api_v1/
+│   ├── client.php                # Client API routes
+│   └── backoffice.php            # Admin API routes
+└── web.php                        # Web routes
+
+resources/
+├── views/
+│   └── emails/                    # Email templates
+│       ├── orders/
+│       │   ├── admin-notification.blade.php
+│       │   └── client-confirmation.blade.php
+│       └── ...
+└── js/
+    ├── app.js
+    ├── bootstrap.js
+    └── echo.js                    # WebSocket configuration
+
+tests/
+├── Feature/                       # Feature tests
+│   ├── CartTest.php
+│   ├── OrderTest.php
+│   └── ...
+└── Unit/                          # Unit tests
+    └── ...
+```
+
+### Core Classes Overview
+
+#### Services (Business Logic)
+
+| Service | Purpose | Key Methods |
+|---------|---------|------------|
+| **AuthService** | Client authentication & profile | `register()`, `login()`, `updateProfile()`, `updatePassword()` |
+| **CartService** | Shopping cart management | `show()`, `store()`, `delete()`, `clear()` |
+| **OrderService** | Order processing & fulfillment | `store()`, `index()`, `getRecentOrders()`, `validateStock()` |
+| **ProductService** | Product catalog management | `index()`, `show()`, `store()`, `generateFeed()` |
+| **ReportService** | Analytics & reporting | `generateDailyReport()`, `getMostSoldProduct()`, `getRevenuePerSite()` |
+| **AgentAuthService** | Agent authentication | `login()`, `logout()`, `refresh()` |
+
+#### Controllers (API Endpoints)
+
+**Client Controllers:**
+- `AuthController`: User registration, login, profile management
+- `CartController`: Cart operations (add, remove, clear items)
+- `OrderController`: Order creation and history
+- `ProductController`: Product browsing and search
+
+**BackOffice Controllers:**
+- `AuthController`: Agent login and session management
+- `OrderController`: View all orders with filters
+- `ProductController`: Create and manage products
+
+**Feed Controller:**
+- `ProductFeedController`: Generate JSON/XML product feeds
+
+#### Exceptions (Error Handling)
+
+| Exception | Usage |
+|-----------|-------|
+| **CartException** | Cart-related errors (not found, empty) |
+| **OrderException** | Order processing errors (stock, validation) |
+| **ProductException** | Product-related errors (not found, invalid) |
+
+---
+
+## API Endpoints Summary
+
+### Client Routes (`/api/v1/client`)
+
+```
+Authentication:
+  POST   /auth/register          - Register new user
+  POST   /auth/login             - Login user
+  POST   /auth/logout            - Logout user
+  POST   /auth/refresh           - Refresh JWT token
+  GET    /auth/profile           - Get user profile
+  PUT    /auth/profile           - Update profile
+  PUT    /auth/password          - Change password
+
+Products:
+  GET    /products               - List products (paginated)
+  GET    /products/{id}          - Get single product
+
+Cart:
+  GET    /cart/{cartId}          - View cart
+  POST   /cart/items             - Add to cart
+  DELETE /cart/{cartId}/items/{productId} - Remove from cart
+  DELETE /cart/{cartId}          - Clear cart
+
+Orders:
+  GET    /orders                 - List user orders
+  POST   /orders                 - Create order
+```
+
+### BackOffice Routes (`/api/v1/backoffice`)
+
+```
+Authentication:
+  POST   /auth/login             - Agent login
+  POST   /auth/logout            - Agent logout
+  POST   /auth/refresh           - Refresh agent token
+
+Management:
+  GET    /orders                 - List all orders
+  POST   /products               - Create product
+```
+
+### Feed Routes (`/api/v1/feeds`)
+
+```
+Public Feeds:
+  GET    /products.json          - Product feed (JSON)
+  GET    /products.xml           - Product feed (XML)
+```
+
+---
+
 ## API Endpoints
 
 ### Base URL
@@ -677,6 +883,28 @@ All endpoints return consistent error responses:
 
 ---
 
+## Postman Collection
+
+A complete Postman collection is available for testing all API endpoints.
+
+### Import the Collection
+
+1. Open Postman
+2. Click **Import** button
+3. Select **File** tab
+4. Choose `public/nutrisport-challenge.postman_collection.json`
+5. Click **Import**
+
+The collection includes:
+- All Client endpoints (Auth, Products, Cart, Orders)
+- All BackOffice endpoints (Auth, Orders, Products)
+- All Feed endpoints (JSON, XML)
+- Pre-configured headers and authentication
+- Sample request bodies
+- Environment variables for easy testing
+
+---
+
 ## Installation & Setup
 
 ### Requirements
@@ -694,6 +922,10 @@ All endpoints return consistent error responses:
 5. Run migrations: `php artisan migrate`
 6. Seed database: `php artisan db:seed`
 7. Start server: `php artisan serve`
+
+### Quick Testing with Postman
+
+After installation, import the Postman collection (see **Postman Collection** section above) to quickly test all endpoints without manual configuration.
 
 ---
 

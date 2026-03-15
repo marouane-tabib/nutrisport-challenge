@@ -7,6 +7,12 @@ use SimpleXMLElement;
 
 class XmlFeedGenerator implements FeedGeneratorInterface
 {
+    /**
+     * Generate an XML feed from the given products.
+     *
+     * @param array $products The array of products to include in the feed
+     * @return string The generated XML feed content
+     */
     public function generate(array $products): string
     {
         $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><products/>');
@@ -21,6 +27,11 @@ class XmlFeedGenerator implements FeedGeneratorInterface
         return $xml->asXML();
     }
 
+    /**
+     * Get the content type for XML feed.
+     *
+     * @return string The MIME type 'application/xml'
+     */
     public function contentType(): string
     {
         return 'application/xml';

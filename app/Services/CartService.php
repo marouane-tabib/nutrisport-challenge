@@ -23,6 +23,12 @@ class CartService extends BaseService
         $this->cartExpiration = Carbon::now()->addDays(3);
     }
 
+    /**
+     * Retrieve a cart by its ID.
+     *
+     * @param string $cartId The unique cart identifier
+     * @return array The cart data with items and total
+     */
     public function show(string $cartId)
     {
         return $this->findCart($cartId);
@@ -183,6 +189,15 @@ class CartService extends BaseService
         return null;
     }
 
+    /**
+     * Update an existing item in the cart with new quantity.
+     *
+     * @param array $items The current cart items
+     * @param int $itemIndex The index of the item to update
+     * @param int $quantityToAdd The quantity to add
+     * @param int|float $productPrice The unit price of the product
+     * @return array The updated items array
+     */
     protected function updateExitItems(array $items, int $itemIndex, int $quantityToAdd, int|float $productPrice): array
     {
         // increment quantity

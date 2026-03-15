@@ -1,0 +1,3160 @@
+{
+  "info": {
+    "_postman_id": "1799a9ac-d80e-4fd9-839c-2935491daa05",
+    "name": "nutrisport-challenge",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31174939"
+  },
+  "item": [
+    {
+      "name": "Client",
+      "item": [
+        {
+          "name": "Auth",
+          "item": [
+            {
+              "name": "Register New User",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.fr",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"first_name\": \"John\",\r\n  \"last_name\": \"Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"password\": \"SecurePassword123\",\r\n  \"password_confirmation\": \"SecurePassword123\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ],
+                  "query": [
+                    {
+                      "key": "",
+                      "value": null,
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Register New User",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.fr",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"first_name\": \"John\",\r\n  \"last_name\": \"Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"password\": \"SecurePassword123\",\r\n  \"password_confirmation\": \"SecurePassword123\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://127.0.0.1:8000/api/auth/register",
+                      "protocol": "http",
+                      "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                      ],
+                      "port": "8000",
+                      "path": [
+                        "api",
+                        "auth",
+                        "register"
+                      ],
+                      "query": [
+                        {
+                          "key": "",
+                          "value": null,
+                          "type": "text",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 11 Mar 2026 21:21:01 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Registered successfully\",\n    \"data\": {\n        \"user\": {\n            \"id\": 2,\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"full_name\": \"John Doe\",\n            \"email\": \"john.doe@example.com\",\n            \"site_id\": 1,\n            \"created_at\": \"2026-03-11T21:21:01.000000Z\"\n        },\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3NzMyNjQwNjEsImV4cCI6MTc3MzI4NTY2MSwibmJmIjoxNzczMjY0MDYxLCJqdGkiOiJrb3pZUlFmUWZySUdvSFVWIiwic3ViIjoiMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJzaXRlX2lkIjoxfQ.Ri-5tUR5vw7nPsS5XVyrh73CxeQjqN0kdf2mSYg2Hww\",\n        \"expires_in\": 21600\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Login User",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.fr",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"jane.smith@example.com\",\r\n  \"password\": \"NewSecurePassword456\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/auth/login",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ],
+                  "query": [
+                    {
+                      "key": "",
+                      "value": null,
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Login User",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.fr",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"email\": \"john.doe@example.com\",\r\n  \"password\": \"SecurePassword123\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://127.0.0.1:8000/api/auth/login",
+                      "protocol": "http",
+                      "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                      ],
+                      "port": "8000",
+                      "path": [
+                        "api",
+                        "auth",
+                        "login"
+                      ],
+                      "query": [
+                        {
+                          "key": "",
+                          "value": null,
+                          "type": "text",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 11 Mar 2026 21:30:32 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"user\": {\n            \"id\": 2,\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"full_name\": \"John Doe\",\n            \"email\": \"john.doe@example.com\",\n            \"site_id\": 1,\n            \"created_at\": \"2026-03-11T21:21:01.000000Z\"\n        },\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3NzMyNjQ2MzIsImV4cCI6MTc3MzI4NjIzMiwibmJmIjoxNzczMjY0NjMyLCJqdGkiOiJBdzVCUGNUQmxac1ZWUWVHIiwic3ViIjoiMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJzaXRlX2lkIjoxfQ.VcUrAti9UZ41Y3iYRNaGh-hL4EcSjp5mCOh9tuXad38\",\n        \"expires_in\": 21600\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Get User Profile (Authenticated)",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.fr",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/auth/profile",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "profile"
+                  ],
+                  "query": [
+                    {
+                      "key": "",
+                      "value": null,
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Get User Profile (Authenticated)",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.fr",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "http://127.0.0.1:8000/api/auth/profile",
+                      "protocol": "http",
+                      "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                      ],
+                      "port": "8000",
+                      "path": [
+                        "api",
+                        "auth",
+                        "profile"
+                      ],
+                      "query": [
+                        {
+                          "key": "",
+                          "value": null,
+                          "type": "text",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 11 Mar 2026 21:32:38 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"id\": 2,\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"full_name\": \"John Doe\",\n        \"email\": \"john.doe@example.com\",\n        \"site_id\": 1,\n        \"created_at\": \"2026-03-11T21:21:01.000000Z\"\n    }\n}"
+                },
+                {
+                  "name": "Get User Profile (Authenticated) - After Update Profile",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.fr",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "http://127.0.0.1:8000/api/auth/profile",
+                      "protocol": "http",
+                      "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                      ],
+                      "port": "8000",
+                      "path": [
+                        "api",
+                        "auth",
+                        "profile"
+                      ],
+                      "query": [
+                        {
+                          "key": "",
+                          "value": null,
+                          "type": "text",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 11 Mar 2026 21:38:33 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [
+                    {
+                      "expires": "Invalid Date",
+                      "domain": "",
+                      "path": ""
+                    }
+                  ],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"id\": 2,\n        \"first_name\": \"Jane\",\n        \"last_name\": \"Smith\",\n        \"full_name\": \"Jane Smith\",\n        \"email\": \"jane.smith@example.com\",\n        \"site_id\": 1,\n        \"created_at\": \"2026-03-11T21:21:01.000000Z\"\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Update User Profile (Authenticated)",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.fr",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"first_name\": \"Jane\",\r\n  \"last_name\": \"Smith\",\r\n  \"email\": \"jane.smith@example.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/auth/profile",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "profile"
+                  ],
+                  "query": [
+                    {
+                      "key": "",
+                      "value": null,
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Update User Profile (Authenticated)",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.fr",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"first_name\": \"Jane\",\r\n  \"last_name\": \"Smith\",\r\n  \"email\": \"jane.smith@example.com\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://127.0.0.1:8000/api/auth/profile",
+                      "protocol": "http",
+                      "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                      ],
+                      "port": "8000",
+                      "path": [
+                        "api",
+                        "auth",
+                        "profile"
+                      ],
+                      "query": [
+                        {
+                          "key": "",
+                          "value": null,
+                          "type": "text",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 11 Mar 2026 21:38:25 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"id\": 2,\n        \"first_name\": \"Jane\",\n        \"last_name\": \"Smith\",\n        \"full_name\": \"Jane Smith\",\n        \"email\": \"jane.smith@example.com\",\n        \"site_id\": 1,\n        \"created_at\": \"2026-03-11T21:21:01.000000Z\"\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Update Password (Authenticated)",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.fr",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"current_password\": \"SecurePassword123\",\r\n  \"password\": \"NewSecurePassword456\",\r\n  \"password_confirmation\": \"NewSecurePassword456\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/auth/password",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "password"
+                  ],
+                  "query": [
+                    {
+                      "key": "",
+                      "value": null,
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Update Password (Authenticated)",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.fr",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"current_password\": \"SecurePassword123\",\r\n  \"password\": \"NewSecurePassword456\",\r\n  \"password_confirmation\": \"NewSecurePassword456\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://127.0.0.1:8000/api/auth/password",
+                      "protocol": "http",
+                      "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                      ],
+                      "port": "8000",
+                      "path": [
+                        "api",
+                        "auth",
+                        "password"
+                      ],
+                      "query": [
+                        {
+                          "key": "",
+                          "value": null,
+                          "type": "text",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 11 Mar 2026 21:41:23 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Password updated successfully\",\n    \"data\": null\n}"
+                }
+              ]
+            },
+            {
+              "name": "Refresh Token (Authenticated)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.fr",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/auth/refresh",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "refresh"
+                  ],
+                  "query": [
+                    {
+                      "key": "",
+                      "value": null,
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Refresh Token (Authenticated)",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.fr",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "http://127.0.0.1:8000/api/auth/refresh",
+                      "protocol": "http",
+                      "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                      ],
+                      "port": "8000",
+                      "path": [
+                        "api",
+                        "auth",
+                        "refresh"
+                      ],
+                      "query": [
+                        {
+                          "key": "",
+                          "value": null,
+                          "type": "text",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 11 Mar 2026 21:43:15 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVmcmVzaCIsImlhdCI6MTc3MzI2NDYzMiwiZXhwIjoxNzczMjg2OTk1LCJuYmYiOjE3NzMyNjUzOTUsImp0aSI6ImZ4Wm5iblpnbWpJb1NjdVEiLCJzdWIiOiIyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInNpdGVfaWQiOjF9.omk2dV6cLk39KKa4PdqxKKaLxaNUVZ-jvFEXsdwUPzc\",\n        \"expires_in\": 21600\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Logout (Authenticated)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.fr",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/auth/logout",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "logout"
+                  ],
+                  "query": [
+                    {
+                      "key": "",
+                      "value": null,
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Logout (Authenticated)",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.fr",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "http://127.0.0.1:8000/api/auth/logout",
+                      "protocol": "http",
+                      "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                      ],
+                      "port": "8000",
+                      "path": [
+                        "api",
+                        "auth",
+                        "logout"
+                      ],
+                      "query": [
+                        {
+                          "key": "",
+                          "value": null,
+                          "type": "text",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 11 Mar 2026 21:45:57 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Successfully logged out\",\n    \"data\": null\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Products",
+          "item": [
+            {
+              "name": "Get Products",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.it",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/products",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "products"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Get Products",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.it",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/products",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "products"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 12 Mar 2026 07:28:04 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": 1,\n                \"name\": \"Whey Protein 1kg\",\n                \"price\": 30.99,\n                \"in_stock\": true\n            },\n            {\n                \"id\": 2,\n                \"name\": \"BCAA Capsules 120\",\n                \"price\": 20.99,\n                \"in_stock\": true\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Creatine Monohydrate\",\n                \"price\": 25.99,\n                \"in_stock\": true\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Pre-Workout Energy\",\n                \"price\": 35.99,\n                \"in_stock\": true\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Mass Gainer 3kg\",\n                \"price\": 50.99,\n                \"in_stock\": true\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Omega 3 Fish Oil\",\n                \"price\": 15.99,\n                \"in_stock\": true\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Multivitamin Complex\",\n                \"price\": 13.99,\n                \"in_stock\": true\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Protein Bar Box (12)\",\n                \"price\": 30.99,\n                \"in_stock\": false\n            }\n        ],\n        \"meta\": {\n            \"total\": 8,\n            \"per_page\": 10,\n            \"page\": 1,\n            \"count\": 1\n        }\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Get Product by ID",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.fr",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/products/1",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "products",
+                    "1"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Get Product by ID",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.fr",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/products/1",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "products",
+                        "1"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 12 Mar 2026 07:28:37 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Whey Protein 1kg\",\n        \"price\": 29.99,\n        \"in_stock\": true\n    }\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Carts",
+          "item": [
+            {
+              "name": "Add Item to Cart",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.it",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"cart_id\": \"550e8400-e29b-41d4-a716-446655440000\",\r\n  \"product_id\": 2,\r\n  \"quantity\": 2\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/cart/items",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "cart",
+                    "items"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Add Item to Cart",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.it",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"cart_id\": \"550e8400-e29b-41d4-a716-446655440000\",\r\n  \"product_id\": 2,\r\n  \"quantity\": 2\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/cart/items",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "cart",
+                        "items"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 13 Mar 2026 04:11:16 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"cart_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n        \"items\": [],\n        \"total\": 0\n    }\n}"
+                },
+                {
+                  "name": "Add Item to Cart",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.it",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"cart_id\": \"550e8400-e29b-41d4-a716-446655440000\",\r\n  \"product_id\": 1,\r\n  \"quantity\": 2\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/cart/items",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "cart",
+                        "items"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 13 Mar 2026 04:13:29 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"cart_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n        \"items\": [\n            {\n                \"product_id\": 1,\n                \"product_name\": \"Whey Protein 1kg\",\n                \"quantity\": 2,\n                \"unit_price\": 30.99,\n                \"line_total\": 61.98\n            }\n        ],\n        \"total\": 61.98\n    }\n}"
+                },
+                {
+                  "name": "Add Item to Cart",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.it",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n//   \"cart_id\": \"550e8400-e29b-41d4-a716-446655440000\",\r\n  \"product_id\": 1,\r\n  \"quantity\": 2\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/cart/items",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "cart",
+                        "items"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 13 Mar 2026 04:15:48 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"cart_id\": \"aee02567-07a2-41eb-99ba-1650f776a35f\",\n        \"items\": [\n            {\n                \"product_id\": 1,\n                \"product_name\": \"Whey Protein 1kg\",\n                \"quantity\": 2,\n                \"unit_price\": 30.99,\n                \"line_total\": 61.98\n            }\n        ],\n        \"total\": 61.98\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Get Cart",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.it",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/cart/550e8400-e29b-41d4-a716-446655440000",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "cart",
+                    "550e8400-e29b-41d4-a716-446655440000"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Get Cart",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.it",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/cart/550e8400-e29b-41d4-a716-446655440000",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "cart",
+                        "550e8400-e29b-41d4-a716-446655440000"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 13 Mar 2026 04:19:50 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"cart_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n        \"items\": [\n            {\n                \"product_id\": 1,\n                \"product_name\": \"Whey Protein 1kg\",\n                \"quantity\": 2,\n                \"unit_price\": 30.99,\n                \"line_total\": 61.98\n            }\n        ],\n        \"total\": 61.98\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Remove Item from Cart",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.it",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/cart/550e8400-e29b-41d4-a716-446655440000/items/1",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "cart",
+                    "550e8400-e29b-41d4-a716-446655440000",
+                    "items",
+                    "1"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Remove Item from Cart",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.it",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/cart/550e8400-e29b-41d4-a716-446655440000/items/2",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "cart",
+                        "550e8400-e29b-41d4-a716-446655440000",
+                        "items",
+                        "2"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 13 Mar 2026 04:21:54 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"cart_id\": \"550e8400-e29b-41d4-a716-446655440000\",\n        \"items\": [],\n        \"total\": 0\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Remove all Carts",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.it",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/cart/550e8400-e29b-41d4-a716-446655440000",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "cart",
+                    "550e8400-e29b-41d4-a716-446655440000"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Remove all Carts",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.it",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/cart/550e8400-e29b-41d4-a716-446655440000",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "cart",
+                        "550e8400-e29b-41d4-a716-446655440000"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 13 Mar 2026 04:23:51 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": null\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Orders",
+          "item": [
+            {
+              "name": "Place Order",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.it",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"cart_id\": \"550e8400-e29b-41d4-a716-446655440000\",\r\n  \"shipping_full_name\": \"John Doe\",\r\n  \"shipping_address\": \"123 Main Street, Apt 4B\",\r\n  \"shipping_city\": \"New York\",\r\n  \"shipping_country\": \"United States\",\r\n  \"payment_method\": \"bank_transfer\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/orders",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Place Order",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.it",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"cart_id\": \"550e8400-e29b-41d4-a716-446655440000\",\r\n  \"shipping_full_name\": \"John Doe\",\r\n  \"shipping_address\": \"123 Main Street, Apt 4B\",\r\n  \"shipping_city\": \"New York\",\r\n  \"shipping_country\": \"United States\",\r\n  \"payment_method\": \"bank_transfer\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/orders",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "orders"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Sat, 14 Mar 2026 06:02:02 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"id\": 25,\n        \"total\": 41.98,\n        \"status\": \"pending\",\n        \"payment_method\": \"bank_transfer\",\n        \"shipping\": {\n            \"full_name\": \"John Doe\",\n            \"address\": \"123 Main Street, Apt 4B\",\n            \"city\": \"New York\",\n            \"country\": \"United States\"\n        },\n        \"created_at\": \"2026-03-14T06:02:02.000000Z\"\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Get Orders",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.it",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"cart_id\": \"550e8400-e29b-41d4-a716-446655440000\",\r\n  \"shipping_full_name\": \"John Doe\",\r\n  \"shipping_address\": \"123 Main Street, Apt 4B\",\r\n  \"shipping_city\": \"New York\",\r\n  \"shipping_country\": \"United States\",\r\n  \"payment_method\": \"bank_transfer\"\r\n}"
+                },
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/orders",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Get Orders",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.it",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"cart_id\": \"550e8400-e29b-41d4-a716-446655440000\",\r\n  \"shipping_full_name\": \"John Doe\",\r\n  \"shipping_address\": \"123 Main Street, Apt 4B\",\r\n  \"shipping_city\": \"New York\",\r\n  \"shipping_country\": \"United States\",\r\n  \"payment_method\": \"bank_transfer\"\r\n}"
+                    },
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/orders",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "orders"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Sat, 14 Mar 2026 05:57:15 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"id\": 22,\n            \"total\": 41.98,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 2,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 41.98\n                }\n            ],\n            \"created_at\": \"2026-03-14T05:53:25.000000Z\"\n        },\n        {\n            \"id\": 21,\n            \"total\": 41.98,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 2,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 41.98\n                }\n            ],\n            \"created_at\": \"2026-03-14T05:50:35.000000Z\"\n        },\n        {\n            \"id\": 20,\n            \"total\": 41.98,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 2,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 41.98\n                }\n            ],\n            \"created_at\": \"2026-03-14T05:49:04.000000Z\"\n        },\n        {\n            \"id\": 19,\n            \"total\": 41.98,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 2,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 41.98\n                }\n            ],\n            \"created_at\": \"2026-03-14T05:47:32.000000Z\"\n        },\n        {\n            \"id\": 18,\n            \"total\": 41.98,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 2,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 41.98\n                }\n            ],\n            \"created_at\": \"2026-03-14T05:44:30.000000Z\"\n        },\n        {\n            \"id\": 17,\n            \"total\": 41.98,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 2,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 41.98\n                }\n            ],\n            \"created_at\": \"2026-03-14T05:39:51.000000Z\"\n        },\n        {\n            \"id\": 16,\n            \"total\": 41.98,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 2,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 41.98\n                }\n            ],\n            \"created_at\": \"2026-03-14T05:38:34.000000Z\"\n        },\n        {\n            \"id\": 15,\n            \"total\": 83.96,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 4,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 83.96\n                }\n            ],\n            \"created_at\": \"2026-03-14T05:36:38.000000Z\"\n        },\n        {\n            \"id\": 14,\n            \"total\": 83.96,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 4,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 83.96\n                }\n            ],\n            \"created_at\": \"2026-03-14T05:31:19.000000Z\"\n        },\n        {\n            \"id\": 13,\n            \"total\": 41.98,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 2,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 41.98\n                }\n            ],\n            \"created_at\": \"2026-03-14T05:27:34.000000Z\"\n        },\n        {\n            \"id\": 12,\n            \"total\": 41.98,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 2,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 41.98\n                }\n            ],\n            \"created_at\": \"2026-03-14T05:16:00.000000Z\"\n        },\n        {\n            \"id\": 11,\n            \"total\": 41.98,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 2,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 41.98\n                }\n            ],\n            \"created_at\": \"2026-03-14T05:14:33.000000Z\"\n        },\n        {\n            \"id\": 10,\n            \"total\": 83.96,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 4,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 83.96\n                }\n            ],\n            \"created_at\": \"2026-03-14T03:09:50.000000Z\"\n        },\n        {\n            \"id\": 9,\n            \"total\": 83.96,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 4,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 83.96\n                }\n            ],\n            \"created_at\": \"2026-03-14T03:05:43.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"total\": 209.9,\n            \"status\": \"pending\",\n            \"payment_method\": \"bank_transfer\",\n            \"shipping\": {\n                \"full_name\": \"John Doe\",\n                \"address\": \"123 Main Street, Apt 4B\",\n                \"city\": \"New York\",\n                \"country\": \"United States\"\n            },\n            \"items\": [\n                {\n                    \"product_id\": 2,\n                    \"product_name\": \"BCAA Capsules 120\",\n                    \"quantity\": 10,\n                    \"unit_price\": 20.99,\n                    \"line_total\": 209.89999999999998\n                }\n            ],\n            \"created_at\": \"2026-03-14T03:03:14.000000Z\"\n        }\n    ]\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Feeds",
+          "item": [
+            {
+              "name": "Get Product Feed (JSON)",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Whey Protein Isolate\",\r\n  \"stock\": 150,\r\n  \"prices\": [\r\n    {\r\n      \"site_id\": 1,\r\n      \"price\": 45.99\r\n    },\r\n    {\r\n      \"site_id\": 2,\r\n      \"price\": 48.50\r\n    },\r\n    {\r\n      \"site_id\": 3,\r\n      \"price\": 42.00\r\n    }\r\n  ]\r\n}"
+                },
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/feeds/products.json",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "feeds",
+                    "products.json"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Get Product Feed (JSON)",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"name\": \"Whey Protein Isolate\",\r\n  \"stock\": 150,\r\n  \"prices\": [\r\n    {\r\n      \"site_id\": 1,\r\n      \"price\": 45.99\r\n    },\r\n    {\r\n      \"site_id\": 2,\r\n      \"price\": 48.50\r\n    },\r\n    {\r\n      \"site_id\": 3,\r\n      \"price\": 42.00\r\n    }\r\n  ]\r\n}"
+                    },
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/feeds/products.json",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "feeds",
+                        "products.json"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Sun, 15 Mar 2026 05:31:34 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"products\": [\n        {\n            \"id\": 1,\n            \"name\": \"Whey Protein 1kg\",\n            \"stock\": 50\n        },\n        {\n            \"id\": 2,\n            \"name\": \"BCAA Capsules 120\",\n            \"stock\": 18\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Creatine Monohydrate\",\n            \"stock\": 60\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Pre-Workout Energy\",\n            \"stock\": 40\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Mass Gainer 3kg\",\n            \"stock\": 25\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Omega 3 Fish Oil\",\n            \"stock\": 100\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Multivitamin Complex\",\n            \"stock\": 90\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Whey Protein Isolate\",\n            \"stock\": 150\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Whey Protein Isolate\",\n            \"stock\": 150\n        },\n        {\n            \"id\": 11,\n            \"name\": \"Whey Protein Isolate\",\n            \"stock\": 150\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Whey Protein Isolate\",\n            \"stock\": 150\n        },\n        {\n            \"id\": 13,\n            \"name\": \"Whey Protein Isolate\",\n            \"stock\": 150\n        }\n    ]\n}"
+                }
+              ]
+            },
+            {
+              "name": "Get Product Feed (XML)",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Whey Protein Isolate\",\r\n  \"stock\": 150,\r\n  \"prices\": [\r\n    {\r\n      \"site_id\": 1,\r\n      \"price\": 45.99\r\n    },\r\n    {\r\n      \"site_id\": 2,\r\n      \"price\": 48.50\r\n    },\r\n    {\r\n      \"site_id\": 3,\r\n      \"price\": 42.00\r\n    }\r\n  ]\r\n}"
+                },
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/feeds/products.xml",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "feeds",
+                    "products.xml"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Get Product Feed (XML)",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"name\": \"Whey Protein Isolate\",\r\n  \"stock\": 150,\r\n  \"prices\": [\r\n    {\r\n      \"site_id\": 1,\r\n      \"price\": 45.99\r\n    },\r\n    {\r\n      \"site_id\": 2,\r\n      \"price\": 48.50\r\n    },\r\n    {\r\n      \"site_id\": 3,\r\n      \"price\": 42.00\r\n    }\r\n  ]\r\n}"
+                    },
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/feeds/products.xml",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "feeds",
+                        "products.xml"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Sun, 15 Mar 2026 05:32:48 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/xml"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<products>\n    <product>\n        <id>1</id>\n        <name>Whey Protein 1kg</name>\n        <stock>50</stock>\n    </product>\n    <product>\n        <id>2</id>\n        <name>BCAA Capsules 120</name>\n        <stock>18</stock>\n    </product>\n    <product>\n        <id>3</id>\n        <name>Creatine Monohydrate</name>\n        <stock>60</stock>\n    </product>\n    <product>\n        <id>4</id>\n        <name>Pre-Workout Energy</name>\n        <stock>40</stock>\n    </product>\n    <product>\n        <id>5</id>\n        <name>Mass Gainer 3kg</name>\n        <stock>25</stock>\n    </product>\n    <product>\n        <id>6</id>\n        <name>Omega 3 Fish Oil</name>\n        <stock>100</stock>\n    </product>\n    <product>\n        <id>7</id>\n        <name>Multivitamin Complex</name>\n        <stock>90</stock>\n    </product>\n    <product>\n        <id>9</id>\n        <name>Whey Protein Isolate</name>\n        <stock>150</stock>\n    </product>\n    <product>\n        <id>10</id>\n        <name>Whey Protein Isolate</name>\n        <stock>150</stock>\n    </product>\n    <product>\n        <id>11</id>\n        <name>Whey Protein Isolate</name>\n        <stock>150</stock>\n    </product>\n    <product>\n        <id>12</id>\n        <name>Whey Protein Isolate</name>\n        <stock>150</stock>\n    </product>\n    <product>\n        <id>13</id>\n        <name>Whey Protein Isolate</name>\n        <stock>150</stock>\n    </product>\n</products>"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{client_token}}",
+            "type": "string"
+          }
+        ]
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Backoffice",
+      "item": [
+        {
+          "name": "Auth",
+          "item": [
+            {
+              "name": "Agent Login",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.fr",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"admin@nutrisport.com\",\r\n  \"password\": \"password\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/backoffice/auth/login",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "backoffice",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Agent Login",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.fr",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"email\": \"admin@nutrisport.com\",\r\n  \"password\": \"password\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://127.0.0.1:8000/api/v1/backoffice/auth/login",
+                      "protocol": "http",
+                      "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                      ],
+                      "port": "8000",
+                      "path": [
+                        "api",
+                        "v1",
+                        "backoffice",
+                        "auth",
+                        "login"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 11 Mar 2026 22:17:23 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"agent\": {\n            \"id\": 1,\n            \"name\": \"Admin NutriSport\",\n            \"email\": \"admin@nutrisport.com\"\n        },\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2JhY2tvZmZpY2UvYXV0aC9sb2dpbiIsImlhdCI6MTc3MzI2NzQ0MywiZXhwIjoxNzczMjk2MjQzLCJuYmYiOjE3NzMyNjc0NDMsImp0aSI6IlYwQVVpRFIyY2FxWWlMVjYiLCJzdWIiOiIxIiwicHJ2IjoiNDJlZGUzMzM0YTA0Y2Q2NWNiMmJlM2Y1YWRmZWIyYzFlZGQzMDc3NCJ9.1heASe__QtPpH1_dLhW1glfkxIrKw271fCOwBiwhimQ\",\n        \"expires_in\": 28800\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Agent Refresh Token (Authenticated)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.fr",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/backoffice/auth/refresh",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "backoffice",
+                    "auth",
+                    "refresh"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Agent Refresh Token (Authenticated)",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.fr",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "http://127.0.0.1:8000/api/v1/backoffice/auth/refresh",
+                      "protocol": "http",
+                      "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                      ],
+                      "port": "8000",
+                      "path": [
+                        "api",
+                        "v1",
+                        "backoffice",
+                        "auth",
+                        "refresh"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 11 Mar 2026 22:20:49 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2JhY2tvZmZpY2UvYXV0aC9yZWZyZXNoIiwiaWF0IjoxNzczMjY3MzUzLCJleHAiOjE3NzMyOTY0NDksIm5iZiI6MTc3MzI2NzY0OSwianRpIjoibm1nYWxtVjNGUTRPaUFDYSIsInN1YiI6IjEiLCJwcnYiOiI0MmVkZTMzMzRhMDRjZDY1Y2IyYmUzZjVhZGZlYjJjMWVkZDMwNzc0In0.ibiSQhvdMcyXIkFd9SIjNj2X2RO2sF-KxWITyN6tZv4\",\n        \"expires_in\": 28800\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Agent Logout (Authenticated)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.fr",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/backoffice/auth/logout",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "backoffice",
+                    "auth",
+                    "logout"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Agent Logout (Authenticated)",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.fr",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "http://127.0.0.1:8000/api/v1/backoffice/auth/logout",
+                      "protocol": "http",
+                      "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                      ],
+                      "port": "8000",
+                      "path": [
+                        "api",
+                        "v1",
+                        "backoffice",
+                        "auth",
+                        "logout"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 11 Mar 2026 22:25:20 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Successfully logged out\",\n    \"data\": null\n}"
+                }
+              ]
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Orders",
+          "item": [
+            {
+              "name": "Get Recent Orders",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Site-Domain",
+                    "value": "nutri-sport.it",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/backoffice/orders?days=5&per_page=5",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "backoffice",
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "key": "days",
+                      "value": "5"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Get Recent Orders",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.it",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/backoffice/orders?days=5&per_page=5",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "backoffice",
+                        "orders"
+                      ],
+                      "query": [
+                        {
+                          "key": "days",
+                          "value": "5"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "5"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Sun, 15 Mar 2026 00:27:44 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"id\": 17,\n            \"client_name\": \"Jane Smith\",\n            \"total\": 41.98,\n            \"status\": \"pending\",\n            \"remaining_balance\": 41.98,\n            \"site\": \"NutriSport Italie\",\n            \"created_at\": \"2026-03-14T05:39:51.000000Z\"\n        }\n    ]\n}"
+                },
+                {
+                  "name": "Get Recent Orders",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Site-Domain",
+                        "value": "nutri-sport.it",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/backoffice/orders?days=5&per_page=5",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "backoffice",
+                        "orders"
+                      ],
+                      "query": [
+                        {
+                          "key": "days",
+                          "value": "5"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "5"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Sun, 15 Mar 2026 06:53:25 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": false,\n    \"message\": \"Insufficient permissions\",\n    \"data\": null\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Products",
+          "item": [
+            {
+              "name": "Create Product",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Whey Protein Isolate\",\r\n  \"stock\": 150,\r\n  \"prices\": [\r\n    {\r\n      \"site_id\": 1,\r\n      \"price\": 45.99\r\n    },\r\n    {\r\n      \"site_id\": 2,\r\n      \"price\": 48.50\r\n    },\r\n    {\r\n      \"site_id\": 3,\r\n      \"price\": 42.00\r\n    }\r\n  ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{url}}{{api_v1}}/backoffice/products",
+                  "host": [
+                    "{{url}}{{api_v1}}"
+                  ],
+                  "path": [
+                    "backoffice",
+                    "products"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Create Product",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"name\": \"Whey Protein Isolate\",\r\n  \"stock\": 150,\r\n  \"prices\": [\r\n    {\r\n      \"site_id\": 1,\r\n      \"price\": 45.99\r\n    },\r\n    {\r\n      \"site_id\": 2,\r\n      \"price\": 48.50\r\n    },\r\n    {\r\n      \"site_id\": 3,\r\n      \"price\": 42.00\r\n    }\r\n  ]\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{url}}{{api_v1}}/backoffice/products",
+                      "host": [
+                        "{{url}}{{api_v1}}"
+                      ],
+                      "path": [
+                        "backoffice",
+                        "products"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": null,
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "127.0.0.1:8000"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/8.2.12"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Sun, 15 Mar 2026 00:56:20 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": "*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"success\": true,\n    \"message\": \"Product created successfully.\",\n    \"data\": {\n        \"id\": 13,\n        \"name\": \"Whey Protein Isolate\",\n        \"stock\": 150,\n        \"in_stock\": true,\n        \"price\": 45.99,\n        \"prices\": [\n            {\n                \"site_id\": 1,\n                \"price\": 45.99\n            },\n            {\n                \"site_id\": 2,\n                \"price\": 48.5\n            },\n            {\n                \"site_id\": 3,\n                \"price\": 42\n            }\n        ]\n    }\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{backoffice_token}}",
+            "type": "string"
+          }
+        ]
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "backoffice_token",
+      "value": ""
+    },
+    {
+      "key": "client_token",
+      "value": ""
+    },
+    {
+      "key": "url",
+      "value": ""
+    },
+    {
+      "key": "api_v1",
+      "value": ""
+    }
+  ]
+}
