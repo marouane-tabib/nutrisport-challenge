@@ -6,6 +6,9 @@ use App\Models\Product;
 use App\Models\ProductPrice;
 use App\Services\BaseService;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use App\Models\Site;
+use Illuminate\Support\Facades\DB;
+use InvalidArgumentException;
 
 class ProductService extends BaseService
 {
@@ -38,6 +41,26 @@ class ProductService extends BaseService
             ->priceForSite($siteId)
             ->findOrFail($productId);
             
+        return $product;
+    }
+    
+    /**
+     * Create a product and its prices for multiple sites.
+     *
+     * @param array $productData  ['name' => string, 'stock' => int]
+     * @param array $prices       array of ['site_id' => int, 'price' => float]
+     * @return \App\Models\Product
+     * @throws InvalidArgumentException
+     */
+    public function store(array $data): Product
+    {
+        $product = DB::transaction(function () use ($data) {
+            $product = Product::create($data);
+            $product->prices()->createMany($data['prices']);
+
+            return $product;
+        });
+
         return $product;
     }
 }
